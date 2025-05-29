@@ -237,11 +237,11 @@ JsObject _exposeIndicatorsModel(IndicatorsModel model) {
     allowInterop(model.removeIndicator),
   );
 
-  setProperty(
-    chartConfig,
-    'clearIndicators',
-    allowInterop(model.clearIndicators),
-  );
+  // setProperty(
+  //   chartConfig,
+  //   'clearIndicators',
+  //   allowInterop(model.clearIndicators),
+  // );
 
   return chartConfig;
 }

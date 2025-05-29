@@ -357,7 +357,7 @@ export default class StudyLegendStore {
     }
     deleteAllStudies() {
         this.activeItems = [];
-        window.flutterChart?.indicators.clearIndicators();
+        // window.flutterChart?.indicators.clearIndicators();
         this.mainStore.state.saveLayout();
     }
 

@@ -384,6 +384,8 @@ class DerivChartWrapperState extends State<DerivChartWrapper> {
                       showCurrentTickBlinkAnimation: false,
                       currentTickAnimationDuration: animationDuration,
                       quoteBoundsAnimationDuration: animationDuration,
+                      crosshairVariant: configModel.isMobile ? 
+                          CrosshairVariant.smallScreen : CrosshairVariant.largeScreen,
                     );
                   }))
                 ],

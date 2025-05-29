@@ -34,6 +34,7 @@ class CrosshairStore {
     mainStore: MainStore;
     prev_arrow?: string;
 
+    // Default state is 2 (tooltip mode)
     state?: number = 2;
     drawingTooltip: HTMLElement | null = null;
     indicatorTooltip: HTMLElement | null = null;
@@ -171,8 +172,8 @@ class CrosshairStore {
         this.mainStore.state.saveLayout();
         this.onCrosshairChanged(this.state);
 
-        const isCrosshairVisible = state !== 0;
-        this.mainStore.chartAdapter.flutterChart?.config.updateCrosshairVisibility(isCrosshairVisible);
+        // Always enable the DerivChart crosshair
+        this.mainStore.chartAdapter.flutterChart?.config.updateCrosshairVisibility(true);
     }
 
     renderCrosshairTooltip = (offsetX: number, offsetY: number) => {

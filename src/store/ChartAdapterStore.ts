@@ -240,6 +240,9 @@ export default class ChartAdapterStore {
     onChartLoad() {
         this.flutterChart = window.flutterChart;
         this.isChartLoaded = true;
+        
+        // Ensure the DerivChart crosshair is enabled
+        this.flutterChart?.config.updateCrosshairVisibility(true);
     }
 
     cleanChart() {
@@ -425,6 +428,9 @@ export default class ChartAdapterStore {
             isMobile: this.mainStore.chart.isMobile || false,
             yAxisMargin: this.mainStore.state.yAxisMargin,
         });
+        
+        // Ensure the DerivChart crosshair is enabled after creating a new chart
+        // this.flutterChart?.config.updateCrosshairVisibility(true);
     };
 
     async onTickHistory(quotes: TQuote[]) {
@@ -654,11 +660,11 @@ export default class ChartAdapterStore {
     }
 
     getYFromQuote(quote: number) {
-        return this.flutterChart?.app.getYFromQuote(quote) ?? 0;
+        return this.flutterChart?.app?.getYFromQuote?.(quote) ?? 0;
     }
 
     getEpochFromX(x: number) {
-        return this.flutterChart?.app.getEpochFromX(x) ?? 0;
+        return this.flutterChart?.app?.getEpochFromX?.(x) ?? 0;
     }
 
     getQuoteFromY(y: number) {

@@ -1,7 +1,7 @@
 import 'dart:js';
 import 'dart:js_util';
 import 'package:chart_app/src/helpers/color.dart';
-import 'package:deriv_chart/deriv_chart.dart' hide ChartDefaultDarkTheme;
+import 'package:deriv_chart/deriv_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:chart_app/src/interop/js_interop.dart';
 import './chart_default_dark_theme.dart';
@@ -135,7 +135,7 @@ class ChartConfigModel extends ChangeNotifier {
   /// To update the theme of the chart
   void updateTheme(String _theme) {
     theme =
-        _theme == 'dark' ? ChartDefaultDarkTheme() : ChartDefaultLightTheme();
+        _theme == 'dark' ? SmartChartDefaultDarkTheme() : ChartDefaultLightTheme();
     notifyListeners();
   }
 
@@ -189,7 +189,7 @@ class ChartConfigModel extends ChangeNotifier {
 
     if (payload.theme != null && payload.theme!.isNotEmpty) {
       theme = payload.theme == 'dark'
-          ? ChartDefaultDarkTheme()
+          ? SmartChartDefaultDarkTheme()
           : ChartDefaultLightTheme();
     }
 

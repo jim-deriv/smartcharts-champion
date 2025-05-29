@@ -44,9 +44,9 @@ class IndicatorsModel {
   }
 
   /// To clear all indicators
-  void clearIndicators() {
-    indicatorsRepo.clear();
-  }
+  // void clearIndicators() {
+  //   indicatorsRepo.clear();
+  // }
 
   /// Binary search
   int? binarySearch(List<Tick> ticks, int epoch, int min, int max) {

@@ -494,7 +494,7 @@ class ChartState {
     }
 
     clearLayout() {
-        window.flutterChart?.indicators.clearIndicators();
+        // window.flutterChart?.indicators.clearIndicators();
         window.flutterChart?.drawingTool.clearDrawingTool();
     }
 

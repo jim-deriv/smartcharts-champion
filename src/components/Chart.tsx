@@ -16,7 +16,7 @@ import BottomWidgetsContainer from './BottomWidgetsContainer';
 import ChartControls from './ChartControls';
 import ChartFooter from './ChartFooter';
 import ChartTitle from './ChartTitle';
-import Crosshair from './Crosshair';
+// Crosshair component is no longer used as we're using DerivChart's crosshair
 import HighestLowestMarker from './HighestLowestMarker';
 import IndicatorPredictionDialog from './IndicatorPredictionDialog';
 import Loader from './Loader';
@@ -193,7 +193,7 @@ const Chart = React.forwardRef((props: TChartProps, ref) => {
                                                 : chartContainerHeight,
                                     }}
                                 >
-                                    <Crosshair />
+                                    {/* Using DerivChart crosshair instead */}
                                 </div>
                                 {enabledNavigationWidget && (
                                     <NavigationWidget onCrosshairChange={memoizedOnCrosshairChange} />
