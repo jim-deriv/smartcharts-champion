@@ -54,7 +54,7 @@ runs:
     - name: Checkout flutter-chart
       uses: actions/checkout@v4
       with:
-        repository: 'deriv-com/flutter-chart'
+        repository: "deriv-com/flutter-chart"
         path: flutter-chart
         ref: ${{ inputs.flutter_chart_ref }}
         token: ${{ inputs.github_token }}
@@ -63,8 +63,14 @@ runs:
       uses: subosito/flutter-action@v2
       with:
         flutter-version: ${{ inputs.flutter_version }}
-        channel: 'stable'
+        channel: "stable"
         cache: true
+
+    - name: Configure Git for token authentication
+      shell: bash
+      run: |
+        git config --global url."https://x-access-token:${{ inputs.github_token }}@github.com/".insteadOf "git@github.com:"
+        git config --global url."https://x-access-token:${{ inputs.github_token }}@github.com/".insteadOf "ssh://git@github.com/"
 
     - name: Cache Flutter dependencies
       uses: actions/cache@v3
@@ -95,7 +101,7 @@ runs:
     - name: Build Flutter application with retry
       uses: nick-fields/retry@v2
       env:
-        GIT_SSH_COMMAND: 'ssh -i ~/.ssh/github_action_key -o StrictHostKeyChecking=no'
+        GIT_SSH_COMMAND: "ssh -i ~/.ssh/github_action_key -o StrictHostKeyChecking=no"
       with:
         timeout_minutes: 10
         max_attempts: 3
