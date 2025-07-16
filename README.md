@@ -783,3 +783,4 @@ export default connect(
 Note that **for independent components, the `mapperFunction` is applied to the store instance**, not the main store. Should you need to access any value from the main store, you can do this via the `mainStore` passed to the constructor of each independent store class.
 
 
+
